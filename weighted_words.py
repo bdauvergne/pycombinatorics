@@ -41,6 +41,13 @@ def counting_less_d_weight(d, n):
 
 def enumerate_d_weight(d, n):
     '''Enumerate all words with d 1-bits.
+
+       The following assertions are True:
+
+            >>> len(set(enumerate_d_weight(d, n))) == counting_d_weight(d, n)
+            True
+            >>> all(map(lambda c: weight(c) == d, enumerate_d_weight(d, n)))
+            True
     '''
     assert 0 <= d <= n
     if n == 0:
@@ -59,6 +66,13 @@ def enumerate_d_weight(d, n):
 
 def enumerate_less_d_weight(d, n):
     '''Enumerate all words with at most d 1-bits.
+
+       The following assertions are True:
+
+            >>> len(set(enumerate_d_weight(d, n))) == counting_less_d_weight(d, n)
+            True
+            >>> all(map(lambda c: weight(c) <= d, enumerate_d_weight(d, n)))
+            True
     '''
     assert 0 <= d <= n
     for less_d in range(d+1):
